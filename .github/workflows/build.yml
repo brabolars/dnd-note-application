@@ -1,0 +1,40 @@
+name: Build & Release
+
+on:
+  push:
+    tags:
+      - "v*"        # triggers on v1.0, v1.1, etc.
+
+permissions:
+  contents: write   # needed to create GitHub Releases
+
+jobs:
+  build-windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          pip install -e .
+          pip install pyinstaller
+
+      - name: Build exe
+        run: python build.py
+
+      - name: Upload to GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/Codex.exe
+          name: "Codex ${{ github.ref_name }}"
+          body: |
+            ## Codex ${{ github.ref_name }}
+
+            **Download Codex.exe below — no installation required.**
+
+            See [CHANGELOG.md](CHANGELOG.md) for what's new.

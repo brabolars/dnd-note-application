@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "codex-dnd"
+version = "1.0.0"
+description = "D&D Campaign Tracker — characters, locations, lore, maps, and connections."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "brabolars" }]
+
+dependencies = [
+    "PyQt6>=6.6",
+]
+
+[project.scripts]
+codex = "codex.app:run"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["codex*"]
+
+[tool.setuptools.package-data]
+"codex" = ["assets/*"]

@@ -1,0 +1,15 @@
+{
+  "_comment": "Preset maps shipped with Codex. Add entries here to make more presets available to all campaigns.",
+  "presets": [
+    {
+      "id": "faerun_standard",
+      "name": "Faerûn (Roll20 Hex)",
+      "description": "Standard Faerûn world map — Roll20 resolution with hex overlay.",
+      "filename": "Faerun-Map-Redone-Roll-20-Res-Hexes.jpg",
+      "calibration": {
+        "pixels_per_unit": 0.7607160483288327,
+        "unit_name": "miles"
+      }
+    }
+  ]
+}
