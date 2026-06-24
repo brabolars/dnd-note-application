@@ -28,9 +28,9 @@ result = subprocess.run(cmd, cwd=ROOT)
 if result.returncode == 0:
     exe = DIST / "Codex.exe"
     if exe.exists():
-        print(f"\n✓ Build successful: {exe}")
+        print(f"\nBuild successful: {exe}")
     else:
         print(f"\n✓ Build finished — check {DIST}/")
 else:
-    print("\n✗ Build failed")
+    print("\nBuild failed")
     sys.exit(1)
